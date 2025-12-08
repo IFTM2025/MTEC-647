@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+
+
+</head>
+
+<body>
+  <!-- =============================== Cabeçalho =============================== -->
+
+  <!-- Background do Cabeçalho -->
+
+  <div class="header-bg">
+
+    <header>
+
+      <!-- Logo do Cabeçalho -->
+
+      <div class="header-logo">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+          <div class="header-logo-icon">
+            <div class="header-logo-icon-border"><img src="src/assets/img/logo.png" alt="Ícone de Descoberta Oceânica"></div>
+          </div>
+        </button>
+
+        <div class="header-logo-text">
+          <h1>Descoberta Oceânica</h1>
+          <h3>Explore os mistérios dos nossos oceânos</h3>
+        </div>
+
+      </div>
+
+      <!-- Navegação do Cabeçalho -->
+
+      <div class="header-nav">
+        <a href="index.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/inicio-logo.png" alt="Ícone de Início"></div>
+            <div class="header-link-text">Início</div>
+          </div>
+        </a>
+
+        <a href="mapa.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/mapa-logo.png" alt="Ícone de Mapa"></div>
+            <div class="header-link-text">Mapa</div>
+          </div>
+        </a>
+
+  
+
+        <a href="jornal.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/jornal-logo.png" alt="Ícone de Jornal"></div>
+            <div class="header-link-text">Jornal</div>
+          </div>
+        </a>
+
+        <a href="fatos.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/fatos-logo.png" alt="Ícone de Fatos"></div>
+            <div class="header-link-text">Fatos</div>
+          </div>
+        </a>
+
+
+
+
+      </div>
+    </header>
+  </div>
+
+  <!-- =============================== Offcanvas Menu =============================== -->
+
+
+  <div class="offcanvas offcanvas-start" id="demo">
+    <div class="offcanvas-header">
+      <img src="src/assets/img/logo.png" alt="Ícone de Módulo de Descoberta oceânica">
+      <h1 class="offcanvas-title">Descoberta Oceânica</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="header-nav">
+        <a href="index.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/inicio-logo.png" alt="Ícone de Início"></div>
+            <div class="header-link-text">Início</div>
+          </div>
+        </a>
+
+        <a href="mapa.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/mapa-logo.png" alt="Ícone de Mapa"></div>
+            <div class="header-link-text">Mapa</div>
+          </div>
+        </a>
+
+        <a href="jornal.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/jornal-logo.png" alt="Ícone de Jornal"></div>
+            <div class="header-link-text">Jornal</div>
+          </div>
+        </a>
+
+        <a href="fatos.html" class="header-links">
+          <div class="header-link-body">
+            <div class="header-link-img"><img src="src/assets/img/fatos-logo.png" alt="Ícone de Fatos"></div>
+            <div class="header-link-text">Fatos</div>
+          </div>
+        </a>
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <!-- Div para o mapa -->
+
+
+  <div class="filtros-container">
+    <div class="btn-group filtros" role="group">
+      <button class="btn filtro active" data-tipo="todos">Todos</button>
+      <button class="btn filtro" data-tipo="recife">Recifes</button>
+      <button class="btn filtro" data-tipo="fossa">Fossas</button>
+      <button class="btn filtro" data-tipo="poluicao">Poluição</button>
+      <button class="btn filtro" data-tipo="polar">Zonas Polares</button>
+      <button class="btn filtro" data-tipo="vida">Vida Ameaçada</button>
+      <button class="btn filtro" data-tipo="santuario">Santuários</button>
+      <button class="btn filtro" data-tipo="vulcao">Vulcões</button>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+
+  <!--  =========================== OFFCANVAS - CONTEÚDO COMPLETO =========================== -->
+
+  <!-- 🌊🏵️ Recifes de Coral -->
+  <!-- Grande Barreira de Coral -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-coral">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Grande Barreira de Coral</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img">
+        <img src="src/assets/galeria/off-canvas-grande-barreira-coral.png" class="img-fluid rounded mb-3" alt="">
+      </div>
+      <p>O maior sistema de recifes do mundo, com mais de 2.300 km. É tão grande que pode ser visto do espaço e abriga
+        uma biodiversidade marinha incomparável.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+        <div class="off-canvas-gallery-box-peixe-palhaço">
+          <h2>Peixe-palhaço (Amphiprion ocellaris)</h2>
+          <img src="src/offcanvas-map/peixe-palhaço.webp" alt="">
+          <p>Nos recifes coloridos da Austrália, o peixe-palhaço dança entre os tentáculos urticantes das anêmonas.
+            Seu corpo laranja vibrante contrasta com o azul profundo do oceano, enquanto ele protege ferozmente seu
+            pequeno território.
+            Uma parceria perfeita: a anêmona o protege, e ele afasta predadores.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-tartaruga-verde">
+          <h2>Tartaruga-verde (Chelonia mydas)</h2>
+          <img src="src/offcanvas-map/tartaruga-verde.jpg" alt="">
+          <p>Gigantes gentis. Elas deslizam pela água como se o mar fosse seda.
+            Podem viajar milhares de quilômetros, mas sempre retornam às mesmas praias para desovar.
+            Nos recifes, são jardineiras naturais, mantendo as algas sob controle.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-coral-cerebro">
+          <h2>Coral-cérebro (Diploria labyrinthiformis)</h2>
+          <img src="src/offcanvas-map/coral-cerebro.jpg" alt="">
+          <p>Parecendo uma estrutura alienígena, o coral-cérebro constrói labirintos calcificados ao longo de séculos.
+            À noite, libera seus tentáculos minúsculos para capturar plâncton — um espetáculo invisível para quem não
+            sabe observar.
+            Ele é o arquiteto silencioso do recife.</p>
+        </div>
+      </div>
+
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png" alt="Ícone Temperatura">Localização:</h1>
+          <p>Austrália</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png" alt="Ícone Temperatura">Temperatura Média:</h1>
+          <p>23-29°C</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png" alt="Ícone Ameaça">Ameaças:</h1>
+          <p>Branqueamento de corais devido ao aquecimento global, poluição e a estrela-do-mar coroa-de-espinhos.</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png" alt="Ícone Conservação">Conservação:</h1>
+          <p>Protegida pela UNESCO e pelo 'Reef 2050 Plan' do governo australiano.</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/BHhMwh7TxFv7vFSJ7" target="_blank" class="google-earth-link">🗺️ Ver no Google
+          Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/level/overlay=sst/orthographic=152.0,-18.0,2600"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Recife de Raja Ampat -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-raja">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Recife de Raja Ampat</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/raja-ampat.jpg"
+          class="img-fluid rounded mb-3" alt="Raja Ampat"></div>
+      <p>Considerado o epicentro da biodiversidade marinha, Raja Ampat possui a maior variedade de espécies de corais e
+        peixes de recife do planeta.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Raia-manta-de-recife (Mobula alfredi)</h2><img src="src/offcanvas-map/raia-manta.jpg" alt="Raia Manta">
+          <p>Com envergadura de até 5 metros, a manta voa através da água com movimentos suaves e silenciosos.
+            Ela parece uma nave viva, planando sobre jardins de coral enquanto pequenos peixes limpadores removem
+            parasitas de sua pele.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Cavalo-marinho-pigmeu (Hippocampus bargibanti)</h2><img src="src/offcanvas-map/cavalo-marinho-pigmeu.jpg"
+            alt="Cavalo-marinho Pigmeu">
+          <p>Menos de 2 cm.
+            Perfeitamente camuflado entre gorgônias rosadas, ele é tão pequeno que foi descoberto apenas por acaso.
+            É um fantasma microscópico que passa despercebido até pelos mergulhadores mais experientes.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tubarão-tapete (Wobbegong)</h2><img src="src/offcanvas-map/tubarao-tapete-wobbegong.jpg"
+            alt="Tubarão-tapete (Wobbegong)">
+          <p>Com padrões que imitam tapetes orientais, ele repousa no fundo como uma armadilha viva.
+            Quando a presa chega perto demais, ele ataca num movimento explosivo e preciso.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png" alt="Ícone Temperatura">Localização:</h1>
+          <p>Papúa Ocidental, Indonésia</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png" alt="Ícone Temperatura">Temperatura Média:</h1>
+          <p>25–30 °C</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png" alt="Ícone Ameaça">Ameaças:</h1>
+          <p>Turismo descontrolado, pesca, poluição.</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png" alt="Ícone Conservação">Conservação:</h1>
+          <p>Área protegida Raja Ampat Marine Parks</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://www.google.com/maps/place/Ilhas+Raja+Ampat/@-1.0320468,130.5052176,3a,75y,78.62h,77.33t/data=!3m8!1e1!3m6!1sCIHM0ogKEICAgID2srGdbg!2e10!3e11!6shttps:%2F%2Flh3.googleusercontent.com%2Fgpms-cs-s%2FAPRy3c-n0TQO8-1nYqs6u3Onf4DiAAYN_RZi3C9YMGaG0VGSZMg_-Q2si82pVbx-ZwM19rq5_buxq-4YLm43FtW3M_tZyZjEtfm6EyIlV7ViTMebBVJIdMi22hCiDT2adVALTZ1KgQ-M%3Dw900-h600-k-no-pi12.674943006305682-ya78.61642882820861-ro0-fo100!7i6080!8i3040!4m14!1m7!3m6!1s0x2d5c3eaaccb47097:0x7851bd844c4cdf44!2sIlhas+Raja+Ampat!8m2!3d-1.0320468!4d130.5052176!16s%2Fm%2F02pgv9k!3m5!1s0x2d5c3eaaccb47097:0x7851bd844c4cdf44!8m2!3d-1.0320468!4d130.5052176!16s%2Fm%2F02pgv9k?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank" class="google-earth-link">🗺️ Ver no Google Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/level/overlay=sst/orthographic=132.4,-0.8,2800"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recife de Belize -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-belize">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Recife de Belize</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/recife-belize.jpg"
+          class="img-fluid rounded mb-3" alt="Recife de Belize"></div>
+      <p>A maior barreira de corais do hemisfério norte, famosa pelo Grande Buraco Azul. Abriga espécies ameaçadas como
+        o peixe-boi-marinho.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tubarão-lixa (Ginglymostoma cirratum)</h2><img src="src/offcanvas-map/tubarao-lixa.jpg"
+            alt="Tubarão-lixa">
+          <p>Calmo, de movimentos preguiçosos, ele patrulha o recife como um monge dos mares.
+            Seus bigodes sensoriais varrem a areia em busca de moluscos e caranguejos.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Peixe-boi-do-caribe (Trichechus manatus)</h2><img src="src/offcanvas-map/peixe-boi.webp" alt="Peixe-boi">
+          <p>Um gigante dócil e herbívoro que desliza com graça inesperada.
+            Eles passam horas pastando capim-marinho, essenciais para manter o ecossistema equilibrado.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Garoupa-gigante (Epinephelus itajara)</h2><img src="src/offcanvas-map/garoupa-gigante.jpg"
+            alt="Garoupa-gigante">
+          <p>Um colosso silencioso.
+            Pode chegar a 300 kg e engolir presas inteiras com uma poderosa sucção.
+            É o “guardião” do recife.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png" alt="Ícone Temperatura">Localização:</h1>
+          <p>Costa de Belize</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png" alt="Ícone Temperatura">Temperatura Média:</h1>
+          <p>26–29 °C</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png" alt="Ícone Ameaça">Ameaças:</h1>
+          <p>Branqueamento, turismo, pesca</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png" alt="Ícone Conservação">Conservação:</h1>
+          <p>Patrimônio da UNESCO</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/khiPosDgVBkvMJi78" target="_blank" class="google-earth-link">🗺️ Ver no Google
+          Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/level/overlay=sst/orthographic=-87.53,17.31,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🕳️ Fossas -->
+
+  <!-- Fossa das Marianas -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-marianas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Fossa das Marianas</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/fossa-marianas.jpg"
+          class="img-fluid rounded mb-3" alt="Fossa das Marianas"></div>
+      <p>O ponto mais profundo dos oceanos, atingindo quase 11.000 metros. A pressão esmagadora abriga formas de vida
+        únicas, os extremófilos.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Vida Hadal:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Peixe-caracol das Marianas (Pseudoliparis swirei)</h2><img src="src/offcanvas-map/peixe-caracol.jpg"
+            alt="Peixe-caracol">
+          <p>A mais profunda criatura já filmada pela humanidade.
+            Este peixe translúcido, sem escamas, vive onde a pressão esmagaria um submarino.
+            Mesmo assim, seus ossos gelatinosos o permitem deslizar como um fantasma pela escuridão total.
+            Lá embaixo, ele é o predador supremo — silencioso, adaptado e invisível.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Anfípode gigante (Hirondellea gigas)</h2><img src="src/offcanvas-map/anfipode-gigante.jpg"
+            alt="Anfípode Gigante">
+          <p>Parecendo camarões alienígenas, eles prosperam na escuridão absoluta.
+            Sobrevivem comendo tudo que cai do mundo iluminado lá em cima:
+            pedaços de peixes, baleias e até microplásticos.
+            São engenheiros da decomposição, recicladores extremos do oceano.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Holotúria Hadal (pepino-do-mar abissal)</h2><img src="src/offcanvas-map/pepino-mar-abissal.jpg"
+            alt="Anfípode Gigante">
+          <p>Um ser que parece um “devorador de lama”.
+            Eles caminham lentamente pelo fundo hadal, filtrando partículas minúsculas.
+            Esses animais são essenciais: limpam e reciclam nutrientes onde quase nada mais vive.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png" alt="Ícone Localização">Localização:</h1>
+          <p>Pacífico Ocidental, a leste das Ilhas Marianas</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/depth-icon.png" alt="Ícone Profundidade">Profundidade Máxima:</h1>
+          <p>10.984 metros</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png" alt="Ícone Temperatura">Temperatura Média:</h1>
+          <p>1–4 °C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png" alt="Ícone Ameaças">Ameaças:</h1>
+          <p>Microplásticos, resíduos químicos, pesca profunda acidental</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png" alt="Ícone Conservação">Conservação:</h1>
+          <p>Região monitorada por parcerias científicas internacionais</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://www.google.com/maps/place/Fossa+das+Marianas/@11.3499856,142.1907682,15z/data=!4m14!1m7!3m6!1s0x67328f3cd57de715:0x1bbe64e7a21aa7fc!2sFossa+das+Marianas!8m2!3d11.3493126!4d142.1995658!16zL20vMDR0NXI!3m5!1s0x67328f3cd57de715:0x1bbe64e7a21aa7fc!8m2!3d11.3493126!4d142.1995658!16zL20vMDR0NXI!5m1!1e4?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank" class="google-earth-link">🗺️ Ver no Google Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=142.00,11.00,2800"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fossa de Tonga -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-tonga">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Fossa de Tonga</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/fossa-tonga.jpg"
+          class="img-fluid rounded mb-3" alt="Fossa de Tonga"></div>
+      <p>A segunda fossa mais profunda do mundo, com mais de 10.800 metros. É conhecida por sua rápida convergência de
+        placas tectônicas.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Vida Hadal:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Isópode gigante (Bathynomus doederleinii)</h2><img src="src/offcanvas-map/isopode-gigante.jpg"
+            alt="Isópode Gigante">
+          <p>O “besouro do mar profundo”.
+            Com quase meio metro, parece um bicho pré-histórico vivendo em um mundo gelado.
+            Se alimenta de carcaças gigantes, como se fosse o faxineiro das trevas.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Caranguejo abissal (segundo registros do Pacífico Sul)</h2><img
+            src="src/offcanvas-map/caranguejo-abissal.png" alt="Caranguejo Abissal">
+          <p>Seus olhos não funcionam — não há luz ali.
+            Ele usa sensores químicos para “ver” no escuro, caminhando por encostas submarinas tão íngremes quanto
+            montanhas invertidas.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Bactérias quimiossintéticas extremófilas</h2><img
+            src="src\offcanvas-map\bacteria-quimiossinteticas-extremofilas.jpg" alt="Isópode Gigante">
+          <p>Microrganismos que transformam compostos tóxicos em energia.
+            São as primeiras formas de vida onde nada mais poderia existir.
+            A base da cadeia alimentar hadal.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png" alt="Ícone Localização">Localização:</h1>
+          <p>Pacífico Sul, a leste do arquipélago de Tonga</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/depth-icon.png" alt="Ícone Profundidade">Profundidade Máxima:</h1>
+          <p>10.800 metros</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png" alt="Ícone Temperatura">Temperatura Média:</h1>
+          <p>0–2 °C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png" alt="Ícone Ameaça">Ameaças:</h1>
+          <p>Mineração submarina, poluição profunda, microplásticos</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png" alt="Ícone Conservação">Conservação:</h1>
+          <p>Área de estudo ativo da NOAA e instituições do Pacífico</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/h7ZRN6CkFfdVVzwQA" target="_blank" class="google-earth-link">🗺️ Ver no Google
+          Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=-173.5,-22.5,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fossa de Porto Rico -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-prico">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Fossa de Porto Rico</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/fossa-prico.png"
+          class="img-fluid rounded mb-3" alt="Fossa de Porto Rico"></div>
+      <p>O ponto mais profundo do Oceano Atlântico, com aproximadamente 8.400 metros. É uma área de alta atividade
+        sísmica.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Vida Hadal:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Peixe-hadal do Atlântico</h2><img src="src/offcanvas-map/peixe-hadal-atlantico.jpg" alt="Pepino-do-mar">
+          <p>Corpo fino, pele transparente e ossos flexíveis.
+            Ele vive em um silêncio absoluto onde a luz nunca chega.
+            Usa sensores laterais para captar vibrações mínimas — como sonar vivo.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Pepino-do-mar Abissal</h2><img src="src/offcanvas-map/pepino-mar-2abissal.jpg" alt="Pepino-do-mar">
+          <p>Parece um “aspirador de pó” vivo.
+            Rasteja lentamente absorvendo detritos orgânicos que caem das camadas superiores.
+            É essencial para reciclar nutrientes no fundo do oceano.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Caranguejo-de-profundidade</h2><img src="src/offcanvas-map/caranguejo-de-profundidade.jpg"
+            alt="Pepino-do-mar">
+          <p>De cor branca leitosa, adaptado a viver na escuridão eterna.
+            Se alimenta de restos que descem das zonas iluminadas — ele é o último elo da cadeia alimentar.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png" alt="Ícone Localização">Localização:</h1>
+          <p>Caribe Norte, entre Porto Rico e a Ilha de São Domingos</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/depth-icon.png" alt="Ícone Profundidade">Profundidade Máxima:</h1>
+          <p>8.400 metros</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png" alt="Ícone Temperatura">Temperatura Média:</h1>
+          <p>1–3 °C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png" alt="Ícone Ameaça">Ameaças:</h1>
+          <p>Poluição atlântica, restos de pesca e resíduos plásticos</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png" alt="Ícone Conservação">Conservação:</h1>
+          <p>Área estudada por programas geológicos dos EUA</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/5Rfj4WzybbCQgy1B7"
+          target="_blank" class="google-earth-link">🗺️ Ver no Google Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=-64.8,20.0,2800"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🧴 Poluição -->
+
+  <!-- Ilha de Midway -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-midway">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Ilha de Midway</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/ilha-midway.jpg"
+          class="img-fluid rounded mb-3" alt="Ilha de Midway"></div>
+      <p>Santuário de albatrozes, este atol se tornou um símbolo trágico da poluição plástica. As aves ingerem plástico
+        do oceano e alimentam seus filhotes.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies afetadas:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Albatroz-pés-negros</h2><img src="src/offcanvas-map/albatroz-pe-negro.jpg" alt="Albatroz">
+          <p>Uma das aves mais longevas do planeta.
+            Elas passam semanas caçando no mar, mas retornam com estômagos cheios de plástico para os filhotes — muitos
+            morrem sem nunca voar.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tropicbird (rabo-de-palha)</h2><img src="src/offcanvas-map/tropic-bird.jpg" alt="Albatroz">
+          <p>Aves elegantes cortando o ar.
+            Mas suas crias crescem entre microplásticos que se acumulam na areia.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Albatroz-de-Laysan</h2><img src="src/offcanvas-map/albatroz-laysan.jpg" alt="Albatroz">
+          <p>Uma das maiores populações do mundo vive em Midway.
+            Até 70% dos filhotes possuem plástico no estômago.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Atol de Midway, Pacífico Norte</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Grau de Contaminação:</h1>
+          <p>Alto – alta ingestão de plástico por aves marinhas</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/poluicao-icon.png">Tipo de Poluição:</h1>
+          <p>Plásticos rígidos, microplásticos, resíduos flutuantes</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Área de proteção ambiental dos EUA</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/YFGu9ZkgLMCqT8cd9" target="_blank" class="google-earth-link">🗺️ Ver no Google
+          Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/chem/surface/level/overlay=co2sc/orthographic=-177.3,28.2,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Grande Mancha de Lixo do Pacífico -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-lixo">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Grande Mancha de Lixo do Pacífico</h5><button type="button"
+        class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/mancha-lixo.jpg"
+          class="img-fluid rounded mb-3" alt="Mancha de Lixo"></div>
+      <p>Uma imensa sopa de microplásticos, maior que o estado do Amazonas, que contamina toda a cadeia alimentar
+        marinha e ainda se tornando a maior área de poluição marinha do planeta.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies afetadas:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tartaruga-verde</h2><img src="src/offcanvas-map/tartaruga-verde-mancha-lixo.webp" alt="Redes Fantasma">
+          <p>Navegando na superfície, ela confunde sacolas plásticas com águas-vivas.
+            Essas sacolas se acumulam no estômago, bloqueiam a digestão e levam a morte lenta.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Albatroz-de-Laysan</h2><img src="src/offcanvas-map/Albatroz-de-Laysan-grande-mancha-lixo.jpg"
+            alt="Microplásticos">
+          <p>Do alto dos céus, ele avista partículas brilhantes no mar — e acreditando que são peixes, leva plástico
+            para seus filhotes.
+            Muitos morrem com o estômago cheio de isqueiros, tampas e pedaços coloridos.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Peixes filtradores (como a sardinha do Pacífico)</h2><img
+            src="src/offcanvas-map/peixes-filtradores-grande-mancha-lixo.jpg" alt="Microplásticos">
+          <p>Eles ingerem microplásticos invisíveis.
+            Essas toxinas sobem pela cadeia alimentar, chegando a grandes predadores — e ao ser humano.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Entre Havaí e Califórnia (Giro do Pacífico Norte)</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Grau de Contaminação:</h1>
+          <p>Extremo – mais de 1,6 milhão km² de plástico flutuante</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/poluicao-icon.png">Tipo de Poluição:</h1>
+          <p>Microplásticos, redes de pesca fantasma, fragmentos de plástico duro, toxinas acumuladas.</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Projetos internacionais (The Ocean Cleanup)</p>
+        </div>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/chem/surface/level/overlay=co2sc/orthographic=-140,32,2600"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Baía de Jacarta -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-jacarta">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Baía de Jacarta</h5><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img"><img src="src/offcanvas-map/baia-jacarta.jpg"
+          class="img-fluid rounded mb-3" alt="Baía de Jacarta"></div>
+      <p>Um dos corpos d'água mais poluídos do mundo, recebendo resíduos de 13 rios que cortam a metrópole de Jacarta,
+        Indonésia.</p>
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies afetadas:</h1>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Manguezal-de-Jacarta</h2><img src="src/offcanvas-map/Manguezal-de-Jacarta.webp"
+            alt="Manguezal de Jacarta">
+          <p>Onde antes se via caranguejos e juvenis de peixes, hoje há lama escura misturada a plástico.
+            Os manguezais são os berçários do mar — e estão desaparecendo.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Peixes costeiros contaminados</h2><img src="src/offcanvas-map/peixes-contaminados-jacarta.jpg"
+            alt="Peixes costeiro contaminados">
+          <p>Eles carregam metais pesados nos tecidos.
+            São vendidos nos mercados, mas podem causar doenças graves.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Garoupas juvenis</h2><img src="src/offcanvas-map/garoupas-juvenis-jacarta.webp" alt="Garoupas juvenis">
+          <p>Antes abundantes, agora lutam para sobreviver em água pobre em oxigênio.</p>
+        </div>
+      </div>
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Baía de Jacarta, Indonésia</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Grau de Contaminação:</h1>
+          <p>Extremo – esgoto, metais pesados e lixo urbano</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/poluicao-icon.png">Tipo de Poluição:</h1>
+          <p>Esgoto urbano, plástico, óleo, mercúrio e chumbo</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Projetos de reflorestamento e controle de esgoto</p>
+        </div>
+      </div>
+      <div class="google-earth">
+        <a href="https://www.google.com/maps/place/Baía+de+Jacarta/@-6.0486651,106.8496576,12z/data=!3m1!4b1!4m6!3m5!1s0x2e6a19a65eceba07:0xa2c349ba71f20c41!8m2!3d-6.0331173!4d106.8414374!16zL20vMGdjMjd3?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank" class="google-earth-link">🗺️ Ver no Google Maps</a>
+      </div>
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/chem/surface/level/overlay=co2sc/orthographic=107.0,-5.7,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ❄️ Zonas Polares -->
+
+  <!-- Mar de Mendwell -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-weddell">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Mar de Weddell</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/mar-weddell.jpg" class="img-fluid rounded mb-3" alt="Mar de Weddell">
+      </div>
+
+      <p>Considerado o mar com as águas mais limpas do planeta, o Mar de Weddell é dominado por vastas plataformas de
+        gelo e ventos intensos. É uma região crucial para a formação de água densa que alimenta as correntes oceânicas
+        globais.</p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Pinguim-imperador</h2>
+          <img src="src/offcanvas-map/penguim-imperador-medwell.webp" alt="Pinguim-imperador">
+          <p>A maior espécie de pinguim da Terra. Enfrenta condições extremas para se reproduzir sobre o gelo marinho,
+            marchando quilômetros durante o inverno polar.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Foca de Weddell</h2>
+          <img src="src/offcanvas-map/foca-weddell.jpg" alt="Foca de Weddell">
+          <p>Uma das poucas espécies capazes de viver permanentemente no gelo. É conhecida pelos sons quase alienígenas
+            que produz debaixo d’água.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Lula-colossal</h2>
+          <img src="src/offcanvas-map/lula-gigante-weddell.avif" alt="Lula Colossal">
+          <p>A maior lula conhecida, capaz de atingir dezenas de metros. Vive nas profundezas escuras da Antártida e é
+            uma das presas preferidas de cachalotes. Quase nunca é vista viva.</p>
+        </div>
+      </div> <!-- CORREÇÃO: A div da galeria FECHA AQUI -->
+
+      <!-- As seções abaixo agora estão FORA e na posição correta -->
+      <div class="off-canvas-status">
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Mar antártico, setor leste da Península Antártica</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>-2 °C a -8 °C</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Aquecimento dos mares, perda de gelo, pesca do krill</p>
+        </div>
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Área de proteção proposta pela CCAMLR</p>
+        </div>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/air/surface/level/overlay=temp/orthographic=-45,-75,3000"
+          target="_blank" class="earth-null-link">
+          🌐 Ver no Earth Nullschool
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Costa Leste da Groenlândia -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-groenlandia">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Costa Leste da Groenlândia</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/groenlandia.webp" class="img-fluid rounded mb-3" alt="Groenlândia">
+      </div>
+
+      <p>Um dos locais mais selvagens e inexplorados do Ártico. Gigantescos fiordes congelados abrigam ursos-polares,
+        narvais e colônias de aves marinhas. As geleiras que descem das montanhas influenciam a circulação oceânica
+        global.</p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Urso-polar</h2>
+          <img src="src/offcanvas-map/urso-polar-clgroelandia.webp" alt="Urso Polar">
+          <p>O maior predador terrestre do planeta. Depende do gelo marinho da Groenlândia para caçar focas — mas o
+            gelo
+            está diminuindo rapidamente.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Narval</h2>
+          <img src="src/offcanvas-map/narval-clgroelandia.jpg" alt="Narval">
+          <p>O “unicórnio do mar”. Eles navegam entre icebergs, mergulhando mais de 1.600 metros em busca de peixes e
+            lulas.</p>
+        </div>
+        <div class="off-canvas-gallery-box-item">
+          <h2>Andorinha-do-ártico (Sterna paradisaea) </h2>
+          <img src="src/offcanvas-map/andorinha-clgroelandia.jpg" alt="Narval">
+          <p>A maior viajante do planeta. Migra da Groenlândia até a Antártida todos os anos — mais de 70 mil km.
+            Passa
+            mais tempo no ar do que qualquer outra ave conhecida.</p>
+        </div>
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Groenlândia Oriental, Oceano Ártico</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>-20°C a 5°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Derretimento do gelo, petróleo, rotas de navegação</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Reserva da Biosfera da Groenlândia</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/jfU1V1Mj194eVyASA" target="_blank" class="google-earth-link">🗺️ Ver no
+          Google
+          Maps</a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/air/surface/level/overlay=temp/orthographic=-20,72,3000"
+          target="_blank" class="earth-null-link">
+          🌐 Ver no Earth Nullschool
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mar de Beaufort -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-beaufort">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Mar de Beaufort</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/mar-beaufort.jpg" class="img-fluid rounded mb-3" alt="Mar de Beaufort">
+      </div>
+
+      <p>Um dos mares mais isolados do mundo. Seu gelo espesso abriga belugas, ursos-polares e aves migratórias. É
+        também um local crítico para o surgimento de gelo multianual — essencial para o equilíbrio do Ártico.</p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Baleia Beluga</h2>
+          <img src="src/offcanvas-map/baleia-beluga.webp" alt="Baleia Beluga">
+          <p>Chamadas de “canários do mar” por seus sons complexos. No verão, milhares viajam para o Mar de Beaufort
+            para se alimentar nas águas ricas em nutrientes.</p>
+        </div>
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Ártico Norte, entre Canadá e Alasca</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>-25°C a 5°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Derretimento do gelo, exploração de petróleo, ruído submarino</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Áreas protegidas dos EUA e Canadá</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://www.google.com/maps/place/Mar+de+Beaufort/data=!4m2!3m1!1s0x51743798efc593cb:0x41234bfebcaad073?sa=X&ved=1t:242&ictx=111"
+          target="_blank" class="google-earth-link">🗺️ Ver no Google
+          Maps</a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/air/surface/level/overlay=temp/orthographic=-150.00,72.00,3000"
+          target="_blank" class="earth-null-link">
+          🌐 Ver no Earth Nullschool
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🐢 Vida Ameaçada -->
+
+  <!-- Ilhas Galápagos -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-galapagos">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Ilhas Galápagos</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/galapagos.webp" class="img-fluid rounded mb-3" alt="Ilhas Galápagos">
+      </div>
+
+      <p>Um arquipélago vulcânico isolado e um verdadeiro laboratório natural da evolução. Galápagos abriga espécies
+        únicas como iguanas marinhas, tartarugas gigantes e grandes cardumes de tubarões-martelo.</p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Iguana Marinha</h2>
+          <img src="src/offcanvas-map/iguana-marinha.jpg" alt="Iguana Marinha">
+          <p>O único lagarto do mundo adaptado ao mar. Consegue mergulhar até 10 metros para se alimentar de algas.
+          </p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tubarão-martelo</h2>
+          <img src="src/offcanvas-map/tubarao-martelo.jpg" alt="Tubarão-martelo">
+          <p>Seus grandes cardumes são um dos espetáculos mais famosos de Galápagos. A cabeça em forma de T aumenta a
+            percepção de campos elétricos.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Leão-marinho-de-Galápagos</h2>
+          <img src="src/offcanvas-map/leao-marinho-galapagos.webp" alt="Leão-marinho">
+          <p>Extremamente sociáveis, descansam nas praias e caçam em grupo. Podem interagir com mergulhadores.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tartaruga-gigante-de-Galápagos</h2>
+          <img src="src/offcanvas-map/tartaruga-gigante.jpg" alt="Tartaruga Gigante">
+          <p>Pode viver mais de 150 anos. Um dos maiores símbolos da fauna única das ilhas.</p>
+        </div>
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Pacífico Oriental, 1000 km da costa do Equador</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>20°C a 28°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Pesca ilegal, espécies invasoras, aquecimento do mar</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Patrimônio Natural da UNESCO</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/5Zjkc4uzhHEZwPnk9" target="_blank" class="google-earth-link">🗺️ Ver no
+          Google Maps</a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/waves/orthographic=-90,-1,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Recife de Apo -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-apo">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Recife de Apo</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/recife-apo.jpg" class="img-fluid rounded mb-3" alt="Recife de Apo">
+      </div>
+
+      <p>Um dos recifes mais preservados da Ásia, conhecido como exemplo mundial de conservação comunitária. Abriga
+        corais vibrantes e uma enorme diversidade de peixes tropicais.</p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tartaruga-de-pente</h2>
+          <img src="src/offcanvas-map/tartaruga-pente.jpg" alt="Tartaruga-de-pente">
+          <p>Criticamente ameaçada. Usa o recife como área de alimentação e descanso.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Peixe-borboleta-listrado</h2>
+          <img src="src/offcanvas-map/peixe-borboleta.jpg" alt="Peixe borboleta">
+          <p>Colorido e sensível a mudanças na temperatura da água. É considerado indicador da saúde do recife.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Coral-cérebro</h2>
+          <img src="src/offcanvas-map/coral-cerebro-recife-apo.jpg" alt="Coral-cérebro">
+          <p>Corais massivos que podem viver séculos. Fundamentais para a estrutura física do recife.</p>
+        </div>
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Negros Oriental, Filipinas</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>26°C a 30°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Branqueamento, pesca destrutiva, turismo excessivo</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Reserva Marinha Comunitária</p>
+        </div>
+
+      </div>
+
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/waves/orthographic=125.90,9.04,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Costa do Quênia -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-quenia">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Costa do Quênia</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/costa-quenia.webp" class="img-fluid rounded mb-3" alt="Costa do Quênia">
+      </div>
+
+      <p>Uma das áreas marinhas mais ricas da África Oriental, com manguezais, recifes de coral e prados de ervas
+        marinhas essenciais para a vida oceânica da região.</p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Dugongo</h2>
+          <img src="src/offcanvas-map/dugongo.jpg" alt="Dugongo">
+          <p>Mamífero herbívoro extremamente ameaçado. Alimenta-se exclusivamente de ervas marinhas.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tubarão-baleia</h2>
+          <img src="src/offcanvas-map/tubarao-baleia.jpg" alt="Tubarão-baleia">
+          <p>O maior peixe do mundo. Costuma visitar águas costeiras do Quênia durante suas migrações.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tartaruga-verde</h2>
+          <img src="src/offcanvas-map/tartaruga-verde.jpg" alt="Tartaruga-verde">
+          <p>Desova nas praias do Quênia há milhares de anos. É extremamente sensível à poluição marinha.</p>
+        </div>
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Litoral do Quênia, Oceano Índico</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>24°C a 30°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Perda de habitat, caça ilegal, poluição plástica</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Parques Marinhos de Watamu e Malindi</p>
+        </div>
+
+      </div>
+
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/waves/orthographic=40,-3,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🕊️ Santuários Marinhos -->
+
+  <!-- Santuário Papahānaumokuākea -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-papahanaumokuakea">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Santuário Papahānaumokuākea</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/papahanaumokuakea.jpg" class="img-fluid rounded mb-3" alt="Papahānaumokuākea">
+      </div>
+
+      <p>
+        Uma das maiores áreas marinhas protegidas do planeta, localizada no noroeste do Havaí.
+        Abriga mais de 7.000 espécies, muitas delas endêmicas, e possui importância cultural
+        profunda para o povo havaiano. Suas águas cristalinas são refúgio para tartarugas, focas-monge
+        e grandes cardumes de peixes de recife.
+      </p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Foca-monge-do-havaí</h2>
+          <img src="src/offcanvas-map/foca-monge.jpg" alt="Foca-monge-do-havaí">
+          <p>Uma das focas mais raras do mundo. Criticamente ameaçada, depende das ilhas remotas do santuário para
+            descansar e se reproduzir.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tartaruga-verde</h2>
+          <img src="src/offcanvas-map/tartaruga-verde.jpg" alt="Tartaruga verde Havaí">
+          <p>Usa as praias e águas rasas do santuário como área de alimentação. É protegida por leis rígidas no Havaí.
+          </p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Peixe-borboleta-endêmico</h2>
+          <img src="src/offcanvas-map/peixe-borboleta-havai.jpg" alt="Peixe borboleta do Havaí">
+          <p>Espécie encontrada apenas no arquipélago havaiano. Indica recifes saudáveis e alta biodiversidade.</p>
+        </div>
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Arquipélago do Havaí, Pacífico Norte</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>24°C a 28°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Lixo marinho, aquecimento global, pesca ilegal</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Monumento Nacional Marinho dos EUA</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/RhH7BLYVJDToq8zH9" target="_blank" class="google-earth-link">🗺️ Ver no
+          Google Maps</a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=-164,27,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Área Protegida das Ilhas Phoenix -->
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-phoenix">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Área Protegida das Ilhas Phoenix</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/ilhas-phoenix.jpg" class="img-fluid rounded mb-3" alt="Ilhas Phoenix">
+      </div>
+
+      <p>
+        Localizada em Kiribati, a Área Protegida das Ilhas Phoenix é um dos maiores e mais
+        profundos santuários marinhos do Pacífico. Suas águas remotas protegem tubarões, atuns,
+        corais antigos e vastos campos de algas e plâncton.
+      </p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tubarão-de-recife-cinzento</h2>
+          <img src="src/offcanvas-map/tubarao-recife-cinzento.jpg" alt="Tubarão de Recife Cinzento">
+          <p>Predador de topo dos recifes. Sua presença em grande número indica ecossistemas equilibrados e livres de
+            pesca predatória.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Atum-rabilho-do-pacífico</h2>
+          <img src="src/offcanvas-map/atum-rabilho.jpg" alt="Atum Rabilho do Pacífico">
+          <p>Espécie migratória poderosa. As Phoenix são parte fundamental de sua rota pelo Pacífico.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Coral de profundidade</h2>
+          <img src="src/offcanvas-map/coral-profundidade.jpg" alt="Coral profundo">
+          <p>Corais antigos que crescem extremamente devagar. Alguns têm centenas ou milhares de anos.</p>
+        </div>
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>República de Kiribati, Pacífico Central</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>26°C a 29°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Mudanças climáticas, acidificação, pesca de alto mar</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Área Marinha Protegida integral</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/YVHQA6M1wQCMfbae7" target="_blank" class="google-earth-link">🗺️ Ver no
+          Google Maps</a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=-172,-3,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🐬 FERNANDO DE NORONHA -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-noronha">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Parque Nacional Marinho de Fernando de Noronha</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/noronha.jpg" class="img-fluid rounded mb-3" alt="Fernando de Noronha">
+      </div>
+
+      <p>
+        Um dos santuários ecológicos mais importantes do Brasil e berço da maior concentração de golfinhos-rotadores
+        do
+        planeta. Suas águas extremamente claras e seus recifes protegidos sustentam uma biodiversidade única no
+        Atlântico Sul.
+      </p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Espécies principais:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Golfinho-rotador</h2>
+          <img src="src/offcanvas-map/golfinho-rotador.webp" alt="Golfinho Rotador">
+          <p>Famoso por saltos acrobáticos e giros. A Baía dos Golfinhos é o maior ponto de descanso da espécie no
+            mundo.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tubarão-limão</h2>
+          <img src="src/offcanvas-map/tubarao-limao.jpg" alt="Tubarão-limão">
+          <p>Utiliza as águas rasas da ilha como berçário. É essencial para manter o equilíbrio da cadeia alimentar.
+          </p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Baiacu-Arco-Íris</h2>
+          <img src="src/offcanvas-map/baiacu-arcoiris.jpg" alt="Baiacu colorido">
+          <p>Peixe vibrante comum nos recifes de Noronha e altamente sensível à poluição e impactos humanos.</p>
+        </div>
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Atlântico Sul, costa nordeste do Brasil</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>26°C a 29°C</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Turismo excessivo, pesca irregular, resíduos plásticos</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Parque Nacional Marinho (ICMBio)</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/fFaUsPbhf4geXqEc7" target="_blank" class="google-earth-link">🗺️ Ver no
+          Google Maps</a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=-32.4,-3.84,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🌋 Vulcões Submarinos -->
+
+  <!-- 🌋 MONTE SUBMARINO LŌ‘IHI -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-loihi">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Monte Submarino Lōʻihi</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/loihi.png" class="img-fluid rounded mb-3" alt="Monte Lōʻihi">
+      </div>
+
+      <p>
+        Um vulcão submarino ativo localizado ao sul do Havaí. Lōʻihi está crescendo lentamente a partir do fundo do
+        mar
+        e, em milhares de anos, pode emergir como a próxima ilha havaiana. Suas fontes hidrotermais sustentam formas
+        de
+        vida raríssimas que dependem de energia química, não da luz solar.
+      </p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Vida Hidrotermal:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Tapetes Bacterianos</h2>
+          <img src="src/offcanvas-map/tapetes-bacterianos.png" alt="Tapetes Bacterianos">
+          <p>Comunidades microbianas que oxidam enxofre e ferro. São a base da cadeia alimentar nas fontes
+            hidrotermais.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Crustáceos Hidrotermais (Munidopsidae)</h2>
+          <img src="src/offcanvas-map/crustaceo-hidrotermal.jpg" alt="Crustáceos hidrotermais">
+          <p>Pequenos crustáceos adaptados a temperaturas extremas e água rica em minerais tóxicos.</p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Enguia-de-garganta-cortada</h2>
+          <img src="src/offcanvas-map/enguia-garganta-cortada.jpg" alt="Peixe de profundidade">
+          <p>Espécies capazes de viver sob pressão extrema nas encostas do vulcão.</p>
+        </div>
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>40 km ao sul da Ilha Grande, Havaí</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>2°C nas águas profundas / > 40°C nas fontes hidrotermais</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Aquecimento global, mineração submarina futura</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Área monitorada pela NOAA</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/35JpvoX9UbA5VNJs7" target="_blank" class="google-earth-link">
+          🗺️ Ver no Google Maps
+        </a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/chem/surface/level/overlay=so2smass/orthographic=-155,18,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🌋 AXIAL SEAMOUNT -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-axial">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Axial Seamount</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/axial-seamont.webp" class="img-fluid rounded mb-3" alt="Axial Seamount">
+      </div>
+
+      <p>
+        O vulcão submarino mais ativo da costa oeste da América do Norte. Localizado na Dorsal Juan de Fuca, é
+        monitorado
+        em tempo real por uma rede de cabos e sensores oceanográficos. Suas erupções criam fluxos de lava e formam
+        novas
+        chaminés hidrotermais.
+      </p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Vida Hidrotermal:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Verme-tubular-gigante</h2>
+          <img src="src/offcanvas-map/verme-tubular.webp" alt="Verme tubular gigante">
+          <p>
+            Sobrevive sem boca ou estômago. Mantém bactérias simbióticas que convertem os compostos químicos da água
+            quente em energia.
+          </p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Molusco Gigante (Calytogena)</h2>
+          <img src="src/offcanvas-map/molusco-gigante.jpg" alt="Molusco gigante">
+          <p>
+            Vive enterrado em sedimentos próximos às chaminés. Filtra enxofre através de bactérias internas.
+          </p>
+        </div>
+
+
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Dorsal Juan de Fuca, Pacífico Norte (EUA)</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>2°C nas profundezas / ≥ 350°C nas chaminés</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Mineração oceânica, acidificação dos oceanos</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Monitoramento pelo OOI (Ocean Observatories Initiative)</p>
+        </div>
+
+      </div>
+
+      <div class="google-earth">
+        <a href="https://maps.app.goo.gl/XRaXYkJbeSUehbNM7" target="_blank" class="google-earth-link">
+          🗺️ Ver no Google Maps
+        </a>
+      </div>
+
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/chem/surface/level/overlay=so2smass/orthographic=-130,46,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🌋 KICK 'EM JENNY -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="info-jenny">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Kick 'em Jenny</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+      <div class="off-canvas-introduction-img">
+        <img src="src/offcanvas-map/kick-em-jenny.jpg" class="img-fluid rounded mb-3" alt="Kick 'em Jenny">
+      </div>
+
+      <p>
+        O único vulcão submarino ativo conhecido no Caribe. Desde 1939, entrou em erupção mais de 12 vezes. A
+        liberação
+        de enormes bolhas de gás pode reduzir drasticamente a densidade da água — um perigo real para barcos.
+      </p>
+
+      <div class="off-canvas-gallery-box">
+        <h1>Impactos:</h1>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Liberação de Gases Vulcânicos</h2>
+          <img src="src/offcanvas-map/gases-vulcanicos.jpg" alt="Gases Vulcânicos">
+          <p>
+            Bolhas gigantes podem fazer embarcações perderem flutuabilidade instantaneamente. A área é restrita para
+            navegação.
+          </p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Plumas de Cinzas Submarinas</h2>
+          <img src="src/offcanvas-map/cinzas-submarinas.png" alt="Cinzas submarinas">
+          <p>
+            As erupções formam plumas negras que se espalham em alta velocidade, alterando a química da água.
+          </p>
+        </div>
+
+        <div class="off-canvas-gallery-box-item">
+          <h2>Formação de Novas Chaminés</h2>
+          <img src="src/offcanvas-map/chamine-hidrotermal.jpg" alt="Chaminé vulcânica">
+          <p>
+            Cada erupção pode gerar novas aberturas no solo marinho, criando habitats intensos para microrganismos
+            extremófilos.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="off-canvas-status">
+
+        <div class="info-hover-item">
+          <h1><img src="src/assets/img/mapa-logo.png">Localização:</h1>
+          <p>Ao norte de Granada, Caribe</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/temperature-icon.png">Temperatura Média:</h1>
+          <p>26°C a 29°C (superfície)</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/ameacas-icon.png">Ameaças:</h1>
+          <p>Perigo direto à navegação, atividade sísmica</p>
+        </div>
+
+        <div class="info-hover-item">
+          <h1><img src="src/offcanvas-map/conservacao-icon.png">Conservação:</h1>
+          <p>Zona restrita de navegação (governo de Granada)</p>
+        </div>
+
+      </div>
+
+     
+      <div class="earth-null">
+        <a href="https://earth.nullschool.net/#current/chem/surface/level/overlay=so2smass/orthographic=-61,12,3000"
+          target="_blank" class="earth-null-link">🌐 Ver no Earth Nullschool</a>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Link para o Leaflet.js -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script src="src/assets/js/script.js">
+
+  </script>
+
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+
+
+
+  <!-- Botão de música ambiente - From Uiverse.io by sohoning -->
+
+  <audio id="musicaFundo" loop autoplay>
+    <source src="src/assets/audio/mar.m4a" type="audio/mpeg">
+  </audio>
+
+  <!-- Botão de Áudio -->
+  <button id="btnControleSom" class="button_01">
+    <a></a>
+    <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1"
+      viewBox="0 0 1024 1024" class="tree">
+
+      <path fill="#593B39"
+        d="M592 267.2h-126.4c-9.28 0-16.64 7.36-16.64 16.64v546.56c0 9.28 7.36 16.64 16.64 16.64h126.4c9.28 0 16.64-7.36 16.64-16.64V284.16c0-9.28-7.36-16.96-16.64-16.96z">
+      </path>
+      <path fill="#FF944C"
+        d="M921.408 896H140.352a466.4 466.4 0 0 1 390.528-210.88c163.392 0 307.136 83.84 390.528 210.88z">
+      </path>
+      <path fill="#96C34A"
+        d="M509.44 271.68H193.6c-17.28 0-31.36-15.68-27.84-32.32 15.36-81.28 87.36-143.68 172.8-143.68 86.496 0 159.136 63.552 173.44 146.144 14.336-82.592 86.976-146.144 173.44-146.144 85.44 0 157.44 62.4 172.8 143.68 3.2 16.96-10.56 32.32-27.84 32.32H509.44z">
+      </path>
+      <path fill="#608842"
+        d="M504 291.2l-98.24 98.24-98.24 98.24c-11.84 11.52-31.68 10.56-40.96-3.2-44.8-65.28-38.08-156.48 19.84-214.4 57.92-57.92 148.8-64.64 214.4-19.84 6.72 4.544 10.432 11.712 11.04 19.2a24.48 24.48 0 0 1 10.4-17.28c63.68-43.52 152-36.8 208.32 19.2 56.32 56.32 62.72 144.64 19.2 208.32-8.96 13.12-28.48 14.4-39.68 2.88l-95.36-95.36-95.36-95.36a26.656 26.656 0 0 1-7.648-16.576 27.296 27.296 0 0 1-7.712 15.936z">
+      </path>
+      <path fill="#8B5C56"
+        d="M528 351.68a63.68 63.68 0 1 1-127.36 0 63.68 63.68 0 0 1 127.36 0zM655.68 416a64 64 0 1 1-128 0 64 64 0 0 1 128 0z">
+      </path>
+      <path fill="#00A6ED"
+        d="M960.64 884.16c-0.32-16.32-16.32-33.92-32.64-34.24-32.64-0.32-46.4-17.92-84.16-17.92-55.04 0-55.04 32-110.08 32s-55.04-32-110.4-32c-55.04 0-55.04 32-110.4 32-55.04 0-55.04-32-110.4-32-55.04 0-55.04 32-110.08 32s-55.04-32-110.4-32c-44.16 0-62.08 20.16-92.48 28.16-15.04 4.16-25.6 17.92-25.6 33.28 0 19.2 15.36 34.56 34.56 34.56H931.2c16 0 29.12-12.8 29.44-28.8 0.32-5.12 0.32-10.24 0-15.04z">
+      </path>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 690" class="wave">
+
+      <defs>
+        <linearGradient y2="50%" x2="100%" y1="50%" x1="0%" id="gradient">
+          <stop stop-color="#8ed1fc" offset="5%"></stop>
+          <stop stop-color="#0693e3" offset="95%"></stop>
+        </linearGradient>
+      </defs>
+      <path transform="rotate(-180 720 350)" class="transition-all duration-300 ease-in-out delay-150 path-0"
+        fill-opacity="0.53" fill="url(#gradient)" stroke-width="0" stroke="none"
+        d="M 0,700 C 0,700 0,233 0,233 C 59.66609412572997,227.46856750257643 119.33218825145994,221.93713500515287 180,209 C 240.66781174854006,196.06286499484713 302.33734111989014,175.720027481965 378,194 C 453.66265888010986,212.279972518035 543.3184472689796,269.1827550669872 620,288 C 696.6815527310204,306.8172449330128 760.388869804191,287.54895225008585 837,272 C 913.611130195809,256.45104774991415 1003.1260735142562,244.62143593266921 1061,257 C 1118.8739264857438,269.3785640673308 1145.106836138784,305.96530401923735 1203,306 C 1260.893163861216,306.03469598076265 1350.4465819306079,269.5173479903813 1440,233 C 1440,233 1440,700 1440,700 Z">
+      </path>
+      <defs>
+        <linearGradient y2="50%" x2="100%" y1="50%" x1="0%" id="gradient">
+          <stop stop-color="#8ed1fc" offset="5%"></stop>
+          <stop stop-color="#0693e3" offset="95%"></stop>
+        </linearGradient>
+      </defs>
+      <path transform="rotate(-180 720 350)" class="transition-all duration-300 ease-in-out delay-150 path-1"
+        fill-opacity="1" fill="url(#gradient)" stroke-width="0" stroke="none"
+        d="M 0,700 C 0,700 0,466 0,466 C 85.70594297492269,460.8663689453796 171.41188594984538,455.7327378907591 229,478 C 286.5881140501546,500.2672621092409 316.0583991755411,549.935417382343 387,551 C 457.9416008244589,552.064582617657 570.3545173479904,504.52559257986945 655,479 C 739.6454826520096,453.47440742013055 796.5235314324974,449.9622122981794 858,449 C 919.4764685675026,448.0377877018206 985.55135692202,449.62555822741325 1045,437 C 1104.44864307798,424.37444177258675 1157.271040879423,397.5355547921676 1222,400 C 1286.728959120577,402.4644452078324 1363.3644795602886,434.23222260391617 1440,466 C 1440,466 1440,700 1440,700 Z">
+      </path>
+    </svg>
+  </button>
+
+  <script src="src/assets/js/audio.js"></script>
+
+
+
+
+
+  <div class="footer-bg">
+    <footer>
+      <div class="footer-header">
+
+        <div class="header-logo">
+
+          <div class="header-logo-icon">
+            <div class="header-logo-icon-border"><img src="src/assets/img/logo.png" alt=""></div>
+          </div>
+          <div class="footer-logo">
+            <div class="footer-logo-text">
+              <h1>Descoberta Oceânica</h1>
+              <h3>Explore os mistérios dos nossos oceânos</h3>
+            </div>
+            <div class="footer-logo-slogan">
+              <p>“Explorar para conhecer. Conhecer para cuidar.”</p>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="footer-social-media">
+          <a href=""><img src="src/assets/img/instagram-icon.png" alt="Instagram logo"></a>
+          <a href=""><img src="src/assets/img/tiktok-icon.png" alt="Tik Tok logo"></a>
+          <a href=""><img src="src/assets/img/github-icon.png" alt="Github logo"></a>
+          <a href=""><img src="src/assets/img/whatsapp-icon.png" alt="whatsapp logo"></a>
+
+        </div>
+
+      </div>
+
+      <div class="footer-links">
+        <h1>Explorar</h1>
+        <a href="index.html">Início</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="jornal.html">Jornal</a>
+        <a href="fatos.html">Fatos</a>
+
+      </div>
+      <div class="footer-contacts">
+        <h1>Contatos</h1>
+        <p>Lorena Castro — Estudante, IFTM Campus Uberaba Parque Tecnológico, MG</p>
+        <p>Orientador : Prof. Gustavo Marino Botta — Professor Ensino Básico Técnico Tecnológico, IFTM</p>
+        <p>Coorientador: <a href="https://mauroborges.com.br">Prof. Mauro Borges França - Professor ESOF,
+            IFTM</a></p>
+        <p>Email : <a href="mailto:lorena.castro@estudante.iftm.edu.br">lorena.castro@estudante.iftm.edu.br</a>
+        </p>
+      </div>
+
+      <div class="footer-info">
+        <p>© 2025 Descoberta Oceânica. Plataforma educativa obre conservação dos oceanos desenvolvida para o
+          MTEC 2025
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="src/assets/js/cursor.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

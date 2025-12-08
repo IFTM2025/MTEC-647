@@ -1,0 +1,2336 @@
+/* Reset Inicial */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+
+
+/* Body e parte estrutural */
+
+
+/* Paleta de cores */
+
+:root {
+    --primary-color: #0066ff;
+    --secondary-color: #00EEFE;
+    --background-color: #003366;
+    --azul-marinho: #000080;
+    --text-color: #ffffff;
+    --verde-agua: #03bb85;
+    --coral: #F88379;
+    --bege: #EDE8D0;
+    --terracota: #E35336;
+    --areia: #CBBD93;
+    --branco: #F8F8F8;
+    --white-smoke: #F5F5F5;
+}
+
+/* Isso faz com que a rolagem seja suave */
+
+body,
+html {
+    scroll-behavior: smooth;
+}
+
+/* Barra de rolagem estilizada */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--azul-marinho);
+    background: linear-gradient(0deg, #003366 0%, #0066ff 60%, #00EEFE 100%);
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+
+body {
+
+    width: 100%;
+    min-height: 100vh;
+    cursor: url('src/assets/cursor/normal.cur'), default;
+
+}
+
+/* Mouse estilizado para links e textos */
+
+a,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+label[for],
+select,
+.btn,
+.btn-primary {
+    cursor: url('src/assets/cursor/link.cur'), pointer;
+
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    cursor: url('src/assets/cursors/text.cur'), text;
+}
+
+/* Mouse/mouse-background */
+
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: 0.1s ease-out;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+}
+
+/* =============================== Header =============================== */
+
+.header-bg {
+
+    width: 100%;
+    height: 7rem;
+    background: var(--azul-marinho);
+    background: linear-gradient(90deg, #000080 0%, #0066ff 60%, #00EEFE 100%);
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid rgba(255, 255, 255, 0.75);
+}
+
+header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    color: white;
+    padding: 10px 30px;
+
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo-icon-border img {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 100%;
+
+    box-shadow: 0 0 5px #0000003d;
+}
+
+.header-logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: center;
+    line-height: 1;
+}
+
+.header-logo-text h1 {
+    font-size: 2rem;
+    font-weight: 600;
+
+}
+
+.header-logo-text h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #F8F8F8;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(202, 202, 202, 0.4);
+    padding: 8.5px 15px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #0000003d;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(50px);
+    justify-content: center;
+    line-height: 1;
+
+}
+
+
+
+.header-links:hover {
+    transform: scale(1.1);
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.925);
+    box-shadow: 0 0 10px #eee;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.header-links:hover .header-link-img img {
+    filter: invert(39%) sepia(87%) saturate(5453%) hue-rotate(224deg) brightness(97%) contrast(101%);
+}
+
+.header-link-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.header-link-img img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100);
+    margin-right: 8px;
+
+}
+
+/* Off Canvas */
+
+.btn-primary {
+    background-color: var(--white-smoke);
+    border: none;
+    box-shadow: 0 0 10px #0000003d;
+    transition: 0.3s;
+    border-radius: 100px;
+    padding: 1px;
+}
+
+.btn-primary:hover {
+    transform: scale(1.075);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.offcanvas-start {
+    display: flex;
+
+    flex-direction: column;
+    color: white;
+    padding: 21.265px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    justify-content: center;
+    background: var(--azul-marinho);
+    background: linear-gradient(0deg, #000080 0%, #0066ff 60%, #00EEFE 100%);
+    border-bottom: 5px solid rgba(255, 255, 255, 0.75);
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    border-bottom: 2px solid white;
+    align-self: center;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: flex-start;
+
+}
+
+.offcanvas-body .header-nav {
+
+    gap: 21px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+
+
+
+}
+
+.offcanvas-start .header-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 8.5px 10px;
+    gap: 100px;
+    width: 69%;
+    backdrop-filter: blur(10);
+    background-color: transparent;
+    font-weight: 600;
+    background-color: rgba(245, 245, 245, 0.301);
+    box-shadow: 0 0 10px #0000003d;
+    font-size: 1rem;
+
+
+
+
+
+}
+
+.btn-close {
+    filter: invert(100);
+}
+
+.offcanvas-start .header-links:hover {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.offcanvas-header {
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid white;
+
+}
+
+.offcanvas-header img {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    box-shadow: 0 0 50px #0066ff;
+    background-color: rgb(255, 255, 255);
+    padding: 1px;
+
+
+}
+
+.offcanvas-header h1 {
+    font-size: 2rem;
+    align-self: center;
+}
+
+.offcanvas-body img {
+
+    width: 40px;
+    height: 40px;
+}
+
+/* Vlibras Widget */
+
+[vw-access-button] {
+    bottom: 80px;
+    right: 25px;
+    box-shadow: 5px 2px 7px #0000003d;
+}
+
+.vw-plugin-top-wrapper {
+    box-shadow: 5px 2px 7px #0000003d;
+}
+
+
+/* =============================== Botão Música Oceano =============================== */
+/*
+    O código CSS para o botão abaixo é licenciado sob a Licença MIT.
+  
+    Copyright - 2025 sohoning (HongNing Song)
+  
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+  
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+  
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+  */
+
+/* From Uiverse.io by sohoning */
+
+.button_01 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    padding: 0px;
+    outline: none;
+    border: none;
+    background-color: #deb887;
+    border-radius: 1em;
+    color: whitesmoke;
+    box-shadow: 0 0 10px #DEB887;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button_01 a {
+    position: relative;
+    z-index: 2;
+}
+
+.tree {
+    position: absolute;
+    bottom: 10%;
+    /* Começa por baixo */
+    left: -20%;
+    transform: translateX(50%);
+    width: 70%;
+    height: auto;
+    transition: bottom 0.85s ease-in-out;
+    z-index: 1;
+}
+
+.wave {
+    position: absolute;
+    display: block;
+    top: -100%;
+    /* Começa por cima */
+    left: 0;
+    width: 155%;
+    height: auto;
+    z-index: 0;
+    transition: top 0.5s ease-in-out;
+}
+
+
+.button_01.active {
+    box-shadow: 0 0 10px #0693e3;
+}
+
+.button_01:hover {
+    box-shadow: 0 0 10px #00bfff;
+}
+
+.button_01.active .tree {
+    bottom: -100%;
+    /* A árvore desce e some quando está ativo */
+}
+
+.button_01.active .wave {
+    top: 0;
+    /* A onda sobe e preenche quando está ativo */
+}
+
+/* =============================== Corpo =============================== */
+
+.introduction-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    padding: 20px;
+    gap: 20px;
+    width: 90%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0000003d;
+}
+
+.body-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+
+}
+
+.body-title h1 {
+    font-size: 2.5rem;
+    color: var(--azul-marinho);
+    text-align: center;
+
+    font-weight: 700;
+
+}
+
+.body-title img {
+    width: 55px;
+    height: 55px;
+}
+
+
+
+/* =============================== Box Outdoor =============================== */
+
+.outdoor-box {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-self: center;
+    align-self: center;
+    height: auto;
+
+
+}
+
+.outdoor-box p {
+    font-size: 0.95rem;
+
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #053d75;
+}
+
+.outdoor-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+
+}
+
+.outdoor-button {
+    text-decoration: none;
+    background-color: var(--verde-agua);
+    color: var(--white-smoke);
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 0 10px var(--verde-agua);
+    transition: all 0.3s ease;
+    display: flex;
+    margin-top: 20px;
+}
+
+.outdoor-button img {
+    width: 42.5px;
+    height: 42.5px;
+    transition: all 0.3s ease;
+
+}
+
+.outdoor-button:hover {
+    background-color: whitesmoke;
+    box-shadow: 0 0 5px var(--verde-agua);
+    color: var(--verde-agua);
+    transform: translateY(-3px);
+    border: 2px solid var(--verde-agua);
+
+
+}
+
+
+#mapa-button:hover img {
+
+    content: url(/src/assets/img/mapa-logo.png);
+    width: 45px;
+    height: 45px;
+    filter: invert(44%) sepia(21%) saturate(1487%) hue-rotate(99deg) brightness(97%) contrast(83%);
+
+}
+
+
+
+#galeria-button:hover img {
+    content: url(/src/assets/img/galeria-logo.png);
+    width: 45px;
+    height: 45px;
+    filter: invert(100);
+}
+
+#galeria-button:hover {
+    background-color: var(--terracota);
+    box-shadow: 0 0 5px var(--terracota);
+    color: whitesmoke;
+    transform: translateY(-3px);
+}
+
+#galeria-button {
+    background-color: white;
+    color: var(--terracota);
+    box-shadow: 0 0 10px var(--terracota);
+    border: 2px solid var(--terracota);
+}
+
+#galeria-button img {
+    filter: invert(34%) sepia(56%) saturate(2259%) hue-rotate(336deg) brightness(77%) contrast(105%);
+}
+
+
+
+
+
+
+
+/* --- Botão de FATOS --- */
+
+/* Estado Normal do Botão Fatos */
+#fatos-button {
+    background-color: white;
+    color: #FFC300;
+    box-shadow: 0 0 10px #FFC300;
+    border: 2px solid #FFC300;
+}
+
+/* Ícone de Fatos no estado normal*/
+#fatos-button img {
+
+    filter: invert(81%) sepia(58%) saturate(1633%) hue-rotate(334deg) brightness(102%) contrast(101%);
+}
+
+/* Estado:hover do Botão Fatos */
+
+#fatos-button:hover {
+    background-color: #FFC300;
+    box-shadow: 0 0 15px #FFD700;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Ícone de Fatos no estado :hover */
+#fatos-button:hover img {
+    content: url(/src/assets/img/lampada-ideia-icon.png);
+    width: 60px;
+    height: 60px;
+    filter: invert(100);
+}
+
+/* --- Botão do JORNAL --- */
+
+/* Estado Normal do Botão Jornal */
+#jornal-button {
+    background-color: #0057A8;
+    color: white;
+    box-shadow: 0 0 10px #0057A8;
+    border: 2px solid #0057A8;
+}
+
+
+/* Ícone do Jornal no estado normal */
+#jornal-button img {
+    filter: invert(100);
+}
+
+/* Estado :hover do Botão Jornal */
+#jornal-button:hover {
+    background-color: white;
+    color: #0057A8;
+    box-shadow: 0 0 10px #0077b6;
+}
+
+/* Ícone do Jornal no estado :hover */
+#jornal-button:hover .header-link-img img {
+    content: url(/src/assets/img/jornal-aberto-icon.png);
+    width: 45px;
+    height: 45px;
+    filter: invert(27%) sepia(53%) saturate(3015%) hue-rotate(188deg) brightness(97%) contrast(101%);
+}
+
+
+.sobre-projeto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    padding: 20px;
+    gap: 20px;
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+    border-radius: 15px;
+    color: #023e8a;
+    box-shadow: 0 0 10px #0000003d;
+    background-image: url(/src/assets/galeria/background.webp);
+
+    background-size: cover;
+}
+
+.sobre-projeto-box {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #0000003d;
+}
+
+.sobre-projeto h2,
+.objetivos h2,
+.agradecimentos h2 {
+    font-size: 2rem;
+    color: var(--azul-marinho);
+    margin-bottom: 20px;
+    font-weight: 700;
+
+
+}
+
+.botao-tartaruga {
+    width: 50%;
+    height: 350px;
+    border-radius: 150px;
+    border: none;
+    box-shadow: 0 0 10px #0000003d;
+    background-image: url(/src/assets/galeria/background-turtle.jpg);
+    background-size: 100% 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+
+}
+
+.botao-tartaruga a {
+
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.botao-tartaruga img {
+    object-fit: contain;
+    width: 850px;
+    height: 850px;
+    position: absolute;
+
+    top: -245px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+.botao-tartaruga:hover img {
+    transform: translateX(-50%) scale(1.1);
+    transition: all 0.3s ease;
+
+}
+
+.botao-tartaruga:hover {
+    box-shadow: 0 0 20px #00bfff;
+    transform: scale(1.05);
+}
+
+
+/* Números */
+
+.numeros {
+    background: var(--bege);
+    background: linear-gradient(0deg, #000080 0%, #0066ff 60%, #00EEFE 100%);
+    padding: 60px 20px;
+    text-align: center;
+    width: 90%;
+    margin: 60px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.numeros h2 {
+    color: var(--azul-marinho);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.contador-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Flip Card */
+.flip-card {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+    /* Efeitozinho 3D */
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Efeito de flip no :hover */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Frente e Verso do Card */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Frente do Card */
+.flip-card-front {
+    background: linear-gradient(135deg, #ffffff, #e6f7ff);
+    color: var(--background-color)
+}
+
+.flip-card-front img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.flip-card-front h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+/* Verso do Card */
+.flip-card-back {
+    background: var(--azul-marinho);
+    background: linear-gradient(180deg, #000080 0%, #0066ff 60%, #00EEFE 100%);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back .numero {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.flip-card-back p {
+    font-size: 1.1rem;
+    color: #cceeff;
+}
+
+section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #054078;
+}
+
+.objetivos,
+.tecnologias,
+.agradecimentos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    padding: 20px;
+    gap: 20px;
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+    border-radius: 15px;
+    color: #023e8a;
+    box-shadow: 0 0 10px #0000003d;
+}
+
+.tecnologias-box {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-self: center;
+    gap: 15px;
+}
+
+#html {
+    color: #E34C26;
+}
+
+#css {
+    color: #264de4;
+}
+
+#js {
+    color: #e5b045;
+}
+
+#leaflet {
+    color: #81be44;
+}
+
+.tecnologias h2 {
+    color: var(--azul-marinho);
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Cards */
+.cards-objetivos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 25%;
+    transition: all 0.3s ease;
+    background-size: 100% 100%;
+    color: white;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    background-repeat: no-repeat;
+    object-fit: contain;
+
+}
+
+.card:hover {
+    transform: scale(1.05) translateY(-10px);
+
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 150, 255, 0.4);
+
+}
+
+.card-box {
+    backdrop-filter: blur(7px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.card h3 {
+    font-weight: 700;
+    color: white;
+    font-size: 1.62rem;
+}
+
+.card p {
+    color: white;
+    font-size: 1rem;
+}
+
+.card img {
+    object-fit: contain;
+    backdrop-filter: blur(10px);
+}
+
+#objetivos-card-poluicao {
+    background-image: url(/src/assets/galeria/poluicao-bg.jpg);
+    border-radius: 15px;
+}
+
+#objetivos-card-vida {
+    background-image: url(/src/assets/galeria/vida-marinha-bg.jpg);
+
+    border-radius: 15px;
+}
+
+#objetivos-card-coral {
+    background-image: url(/src/assets/galeria/coral-bg.jpg);
+    border-radius: 15px;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(0, 150, 255, 0.3);
+}
+
+.tec-icons img {
+    width: 70px;
+    margin: 15px;
+    filter: drop-shadow(0 0 5px rgba(0, 150, 255, 0.3));
+}
+
+.tec-icons-leaflet img {
+    height: 100px;
+
+    filter: drop-shadow(0 0 5px rgba(0, 150, 255, 0.3))
+}
+
+
+.tec-icons {
+    transition: transform 0.3s ease;
+}
+
+.tec-icons:hover {
+    transform: scale(1.15);
+    /* Aumenta o ícone e o texto juntos */
+}
+
+/* Isso faz a cor do texto combinar com a cor do logo ao passar o mouse */
+.tec-icons:hover #html {
+    color: #E34C26;
+}
+
+.tec-icons:hover #css {
+    color: #264de4;
+}
+
+.tec-icons:hover #js {
+    color: #e5b045;
+}
+
+/* Para o Leaflet, como ele tem dois elementos, podemos ajustar um pouco */
+.tec-icons-leaflet {
+    transition: transform 0.3s ease;
+}
+
+.tec-icons-leaflet:hover {
+    transform: scale(1.1);
+}
+
+.tec-icons-leaflet:hover #leaflet {
+    color: #81be44;
+}
+
+
+
+
+
+/* =============================== Footer =============================== */
+
+.footer-bg {
+    width: 100%;
+    background: linear-gradient(90deg, #000080 0%, #0066ff 60%, #00EEFE 100%);
+    color: #fff;
+    border-top: 4px solid rgba(255, 255, 255, 0.4);
+    padding: 60px 0 20px;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+footer {
+    width: 90%;
+    margin: auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.footer-header {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 10px;
+    max-width: 300px;
+}
+
+.footer-header img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-color: white;
+}
+
+.footer-header .header-logo {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo-text h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-logo-text h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #cde8ff;
+}
+
+.footer-logo-slogan p {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #bde4ff;
+}
+
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-links h1 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-links a {
+    color: #dff6ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(4px);
+    text-decoration: underline;
+}
+
+/* Contatos */
+.footer-contacts {
+    max-width: 400px;
+}
+
+.footer-contacts h1 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-contacts p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #e3f2fd;
+}
+
+.footer-contacts a {
+    color: #dff6ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-contacts a:hover {
+    color: #fff;
+    transform: translateX(4px);
+    text-decoration: underline;
+}
+
+/* Mídias sociais */
+.footer-social-media {
+    display: none;
+    gap: 10px;
+    margin-top: 10px;
+
+}
+
+.footer-social-media img {
+    width: 37.5px;
+    height: 37.5px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.footer-social-media img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+}
+
+
+.footer-info {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 40px;
+    padding-top: 15px;
+    font-size: 0.85rem;
+    color: #cceeff;
+}
+
+/* =============================== Mapa Leaflet =============================== */
+
+
+#map {
+    display: flex;
+    height: 80vh;
+    align-self: center;
+    justify-self: center;
+
+    margin-bottom: 40px;
+    margin-top: 50px;
+    width: 90vw;
+
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+
+#map {
+    border: 5px solid #0077b6;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 150, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Animação suave ao passar o mouse */
+#map:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 35px rgba(0, 150, 255, 0.5);
+}
+
+/* ======== POPUPS ======== */
+.leaflet-popup-content-wrapper {
+    background: #f8f9fa;
+    color: #023e8a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-tip {
+    background: #f8f9fa;
+}
+
+/* ======== CONTROLES ======== */
+.leaflet-control-zoom a {
+    background-color: #0077b6;
+    color: white;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: #0096c7;
+}
+
+
+.leaflet-container {
+    background: #acd4dc;
+}
+
+
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+/* Container dos filtros */
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--azul-marinho);
+    background: linear-gradient(180deg, #00008090 0%, #0066ff90 60%, #00edfe90 100%);
+    padding: 10px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 1. ESTADO NORMAL DO BOTÃO */
+.filtros .btn {
+    background-color: transparent;
+    color: var(--white-smoke);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    box-shadow: none;
+}
+
+/* 2. ESTADO :HOVER DO BOTÃO */
+.filtros .btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--secondary-color);
+}
+
+/* 3. ESTADO .ACTIVE DO BOTÃO */
+.filtros .btn.active {
+    background-color: var(--primary-color);
+    color: var(--white-smoke);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 20px var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* =============================== Estilos do Offcanvas do Mapa =============================== */
+
+/* Seletor geral para todos os painéis de informação */
+[id^="info-"] {
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #0000003d;
+    background-color: #001f3f;
+    background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7));
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom: none;
+
+
+}
+
+[id^="info-"] p {
+    color: white;
+}
+
+[id^="info-"] img {
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+[id^="info-"] .offcanvas-header {
+    background-color: rgba(0, 20, 41, 0.7);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--secondary-color);
+    color: white;
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid white;
+    border-radius: 15px;
+}
+
+.off-canvas-introduction-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    box-shadow: 0 0 50px #0066ff;
+    background-color: rgb(255, 255, 255);
+    padding: 1px;
+}
+
+.off-canvas-status {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #0000003d;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+div[id^="info-"]:not(.info-hover-item) img:hover {
+
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
+
+[id^="info-"] .offcanvas-body {
+    color: #f0f8ff;
+
+}
+
+
+
+/* Revelar informações */
+.info-hover-item {
+    background-color: rgba(0, 31, 63, 0.6);
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-hover-item:hover {
+    border-color: var(--secondary-color);
+    transform: scale(1.02);
+}
+
+.info-hover-item h1 {
+    font-size: 1.1rem;
+    color: var(--white-smoke);
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.info-hover-item h1 img {
+    width: 100px;
+    height: 100px;
+    margin-right: 12px;
+    text-align: center;
+    filter: invert(901%) sepia(23%) saturate(1001%) hue-rotate(159deg) brightness(105%) contrast(101%);
+
+}
+
+
+.info-hover-item p,
+.off-canvas-gallery-box p {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    margin: 0;
+    padding-top: 8px;
+    padding-left: 36px;
+    color: #f0f8ff;
+    font-size: 0.95rem;
+}
+
+/* Hover para revelar o texto do p */
+.info-hover-item:hover p,
+.off-canvas-gallery-box:hover p {
+    opacity: 1;
+    max-height: 200px;
+    font-size: 1rem;
+
+}
+
+.off-canvas-gallery-box {
+
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #0000003d;
+    margin-top: 15px;
+}
+
+.offcanvas-gallery-box h1 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.off-canvas-gallery-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.off-canvas-gallery-box p {
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.off-canvas-gallery-box h2 {
+    font-weight: 600;
+}
+
+.off-canvas-gallery-box div {
+    padding: 20px;
+    gap: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #0000003d;
+}
+
+.off-canvas-gallery-box img {
+    width: 90%;
+    height: 200px;
+    border-radius: 15px;
+}
+
+
+.google-earth,
+.earth-null {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+
+    margin-top: 5px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.google-earth-link,
+.earth-null-link {
+    text-decoration: none;
+    color: var(--white-smoke);
+    font-weight: 600;
+    background-color: var(--azul-marinho);
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--azul-marinho);
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.google-earth-link {
+    background-color: var(--primary-color);
+    color: var(--white-smoke);
+    box-shadow: 0 0 10px #0066ff;
+}
+
+.google-earth-link:hover {
+    background-color: rgb(41, 81, 168);
+    box-shadow: 0 0 10px rgb(41, 81, 168);
+
+}
+
+.earth-null-link {
+    background-color: var(--azul-marinho);
+    color: var(--white-smoke);
+    box-shadow: 0 0 10px #000080;
+}
+
+.earth-null-link:hover {
+    background-color: #000040;
+    /* Cor mais clara no hover */
+}
+
+#info-coral {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-coral-bg.png');
+}
+
+#info-raja {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-raja-bg.png');
+}
+
+#info-belize {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-belize-bg.png');
+}
+
+#info-marianas {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-marianas-bg.png');
+}
+
+#info-tonga {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-toga-bg.png');
+}
+
+#info-prico {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-prico-bg.png');
+}
+
+#info-midway {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-midway-bg.png');
+}
+
+#info-lixo {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-lixo-bg.png');
+}
+
+#info-jacarta {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-jacarta-bg.png');
+}
+
+#info-weddell {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-weddell-bg.png');
+}
+
+#info-groenlandia {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-groelandia-bg.png');
+}
+
+#info-beaufort {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-mar-beaufort-bg.png');
+}
+
+#info-galapagos {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-galapagos-bg.png');
+}
+
+#info-apo {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-recife-apo-bg.png');
+}
+
+#info-quenia {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-costa-quenia-bg.png');
+}
+
+#info-papahanaumokuakea {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-papahanaumokuakea-bg.png');
+}
+
+#info-phoenix {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-ilhas-phoenix-bg.png');
+}
+
+#info-noronha {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-fernando-noronha-bg.png');
+}
+
+#info-loihi {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-loihi-bg.png');
+}
+
+#info-axial {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-axial-seamount-bg.png');
+}
+
+#info-jenny {
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-kick-em-jenny-bg.png');
+}
+
+
+/* Lorena */
+
+
+
+
+/* Ana Julia */
+
+
+
+
+/* ---------------------CABEÇALHO----------------------- */
+.cabecalho-jornal {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.cabecalho-jornal h1 {
+    font-size: 50px;
+    color: rgb(92, 190, 255);
+}
+
+.cabecalho-jornal h3 {
+    color: rgb(59, 176, 255);
+}
+
+/* -------------------------------------------------------- */
+/* -----------------------FILTRO--------------------------- */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #0693e3;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 4px 10px rgba(24, 33, 39, 0.3);
+    overflow: hidden;
+}
+
+.filtro {
+    border: none;
+    background: none;
+    color: rgb(199, 232, 255);
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.filtro:hover,
+.filtro ativo {
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+}
+
+/* -------------------------------------------------------- */
+/*------------------------CARD----------------------------- */
+.d-none {
+    display: none !important;
+}
+
+.artigo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 30px 20px;
+
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.artigo .card {
+    width: 350px !important;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+/* Imagem */
+.artigo .card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+/* cabeçalho */
+.artigo .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header,
+.card-footer {
+    background-color: white;
+}
+
+/* ícone + texto */
+.artigo .icone-p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.artigo .icone-p img {
+    width: 20px;
+    height: 20px;
+}
+
+.artigo .icone-p p {
+    margin: 0;
+    color: #003366 !important;
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgb(170, 223, 255);
+    padding: 4px 15px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: rgb(11, 46, 75);
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.card-body {
+    background-color: rgba(196, 229, 255, 0.551);
+    flex-grow: 1;
+}
+
+.card-body h2 {
+    font-size: x-large;
+    color: #0f559b;
+}
+
+/* footer */
+.artigo .card-footer p {
+    color: #01346e;
+}
+
+/* -------------------------------------------------------- */
+/*------------------------ARTIGO--------------------------- */
+.modal-dialog.modal-fullscreen {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #fff;
+    border: none;
+}
+
+.modal-header,
+.modal-footer {
+    flex-shrink: 0;
+    background-image: linear-gradient(to left, rgb(187, 245, 255), rgb(74, 167, 255));
+    border: none;
+    padding: 15px 25px;
+}
+
+.modal-header h3 {
+    flex: 1;
+    text-align: center;
+    color: rgb(0, 73, 150);
+}
+
+.modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.img-artigo img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+.subtitulo-projeto {
+    font-size: 19px;
+    color: rgb(41, 67, 96);
+    text-align: center;
+}
+
+.subtitulo-projeto a {
+    text-decoration: none;
+    color: rgb(52, 102, 160);
+}
+
+.container-texto {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #212121;
+    word-wrap: break-word;
+}
+
+.container-texto h2 {
+    color: rgb(9, 66, 101);
+}
+
+.container-texto h2:nth-child(odd) {
+    color: rgb(56, 159, 207);
+}
+
+.citacao {
+    justify-self: center;
+    color: rgb(99, 99, 99);
+}
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .fatos-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .fatos-card {
+        width: 90%;
+    }
+
+    .tecnologias-box {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/*hero*/
+
+
+
+.fatos-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.fatos-hero-content .light {
+    font-weight: 300;
+    color: #cdefff;
+}
+
+.fatos-hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+
+.fatos-metricas {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.fatos-metrica {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+    min-width: 140px;
+}
+
+.fatos-metrica span {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+@media screen and (max-width: 1077px) {
+
+    .header-nav>* {
+        display: none;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    header {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 457px) {
+
+    .header-logo-text {
+        display: none;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    .header-logo-icon-border img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .header-logo-icon-border img+.header-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+
+/* ==========================================================================
+     ======================= RESPONSIVIDADE DO SITE =========================
+     ========================================================================== */
+
+/* Telas Menores que 992px (Tablets) */
+@media screen and (max-width: 992px) {
+
+    /* --- Header --- */
+    header .header-nav {
+        display: none;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    /* --- Cards --- */
+
+    .cards-objetivos .card,
+    .numeros .flip-card {
+        width: 45%;
+        min-width: 250px;
+    }
+}
+
+
+/* Regras para Telas Pequenas (Celulares) */
+@media screen and (max-width: 768px) {
+
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    section,
+    .introduction-body {
+        width: 95%;
+        padding: 20px 15px;
+    }
+
+    /* --- Header --- */
+    header {
+        padding: 10px 15px;
+        justify-content: center;
+    }
+
+    .header-logo-text h1 {
+        font-size: 1.4rem;
+    }
+
+    .header-logo-text h3 {
+        display: none;
+    }
+
+    .header-logo-icon-border img {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* --- Seções da Página Inicial --- */
+    .outdoor-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .botao-tartaruga {
+        width: 90%;
+        height: 250px;
+    }
+
+    .botao-tartaruga img {
+        width: 600px;
+        height: 600px;
+        top: -175px;
+    }
+
+
+    .cards-objetivos .card,
+    .numeros .flip-card,
+    .fatos-card-container .fatos-card {
+        width: 90%;
+    }
+
+    /* --- Página do Mapa --- */
+    .filtros {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .filtros .btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    #map {
+        height: 70vh;
+    }
+
+    .offcanvas-header h5 {
+        font-size: 1.5rem;
+    }
+
+    /* --- Footer --- */
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-header,
+    .footer-links,
+    .footer-contacts {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .footer-header .header-logo {
+        flex-direction: column;
+    }
+
+    .footer-social-media {
+        justify-content: center;
+    }
+}
+
+
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4fbff;
+    color: #333;
+}
+
+/* HERO */
+.hero {
+    background: #0096d6;
+    background: linear-gradient(135deg, #08307a, #6db2da);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    border-radius: 15px;
+    width: 70vw;
+    display: flex;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.hero:hover {
+    transform: scale(1.05);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: auto;
+    color: #eafaff;
+}
+
+/* SEÇÃO CURIOSIDADES */
+/*uriosidades-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+  }*/
+
+.curiosidades-section h2 {
+    font-size: 2.5rem;
+    color: #73c497c0;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* CONTAINER DE CARDS */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 320px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: #0077cc;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin: 16px;
+    color: #003f63;
+}
+
+.card p {
+    font-size: 0.95rem;
+    margin: 0 16px 16px 16px;
+    color: #444;
+}
+
+.card-footer {
+    padding: 10px 16px 16px;
+    font-size: 0.9rem;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: #003f63;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+
+/*hero*/
+
+
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-content .light {
+    font-weight: 300;
+    color: #cdefff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+
+.metricas {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.metrica {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+    min-width: 140px;
+}
+
+.metrica span {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.section {
+    background-image: url('imagen/tartaruga.webp');
+    /* caminho da sua imagem */
+    background-size: cover;
+    /* faz a imagem preencher toda a área */
+    background-position: center;
+    /* centraliza a imagem */
+    background-repeat: no-repeat;
+    /* evita repetição */
+
+    padding: 80px 0;
+    /* aumenta o espaço vertical do título */
+    text-align: center;
+    color: white;
+    /* cor do texto */
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#i9 {
+    text-align: center;
+    background: #0096d6;
+    background: linear-gradient(135deg, #000618, #6db2da);
+    color: black;
+}
+
+p {
+    text-align: center;
+    margin: 0;
+}
