@@ -1574,87 +1574,87 @@ div[id^="info-"]:not(.info-hover-item) img:hover {
 }
 
 #info-coral {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-coral-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-coral-bg.png');
 }
 
 #info-raja {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-raja-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-raja-bg.png');
 }
 
 #info-belize {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-belize-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-belize-bg.png');
 }
 
 #info-marianas {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-marianas-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-marianas-bg.png');
 }
 
 #info-tonga {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-toga-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-toga-bg.png');
 }
 
 #info-prico {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-prico-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-prico-bg.png');
 }
 
 #info-midway {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-midway-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-midway-bg.png');
 }
 
 #info-lixo {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-lixo-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-lixo-bg.png');
 }
 
 #info-jacarta {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-jacarta-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-jacarta-bg.png');
 }
 
 #info-weddell {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-weddell-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-weddell-bg.png');
 }
 
 #info-groenlandia {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-groelandia-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-groelandia-bg.png');
 }
 
 #info-beaufort {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-mar-beaufort-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-mar-beaufort-bg.png');
 }
 
 #info-galapagos {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-galapagos-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-galapagos-bg.png');
 }
 
 #info-apo {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-recife-apo-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-recife-apo-bg.png');
 }
 
 #info-quenia {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-costa-quenia-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-costa-quenia-bg.png');
 }
 
 #info-papahanaumokuakea {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-papahanaumokuakea-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-papahanaumokuakea-bg.png');
 }
 
 #info-phoenix {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-ilhas-phoenix-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-ilhas-phoenix-bg.png');
 }
 
 #info-noronha {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-fernando-noronha-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-fernando-noronha-bg.png');
 }
 
 #info-loihi {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-loihi-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-loihi-bg.png');
 }
 
 #info-axial {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-axial-seamount-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-axial-seamount-bg.png');
 }
 
 #info-jenny {
-  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('/src/offcanvas-map/off-canvas-kick-em-jenny-bg.png');
+  background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('src/offcanvas-map/off-canvas-kick-em-jenny-bg.png');
 }
 
 

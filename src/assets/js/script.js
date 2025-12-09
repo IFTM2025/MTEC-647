@@ -51,12 +51,12 @@ const map = L.map('map', {
 
 const icones = {
 
-  recife:    new IconeBase({ iconUrl: '/src/assets/icons/corais-logo.png' }),
-  fossa:     new IconeBase({ iconUrl: '/src/assets/icons/fossas-icon.png' }),
-  poluicao:  new IconeBase({ iconUrl: '/src/assets/icons/poluição-icon.png' }),
-  polar:     new IconeBase({ iconUrl: '/src/assets/icons/zona-polar-icon.png' }),
-  vida:      new IconeBase({ iconUrl: '/src/assets/icons/vida-ameaçada-icon.png' }),
-  santuario: new IconeBase({ iconUrl: '/src/assets/icons/santuário-icon.png' }),
+  recife:    new IconeBase({ iconUrl: 'src/assets/icons/corais-logo.png' }),
+  fossa:     new IconeBase({ iconUrl: 'src/assets/icons/fossas-icon.png' }),
+  poluicao:  new IconeBase({ iconUrl: 'src/assets/icons/poluição-icon.png' }),
+  polar:     new IconeBase({ iconUrl: 'src/assets/icons/zona-polar-icon.png' }),
+  vida:      new IconeBase({ iconUrl: 'src/assets/icons/vida-ameaçada-icon.png' }),
+  santuario: new IconeBase({ iconUrl: 'src/assets/icons/santuário-icon.png' }),
   vulcao:    new IconeBase({ iconUrl: 'src/assets/icons/vulcões-icon.png'})
 };
 
