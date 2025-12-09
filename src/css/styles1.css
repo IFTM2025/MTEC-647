@@ -566,7 +566,7 @@ header {
 
 #mapa-button:hover img {
 
-    content: url(/src/assets/img/mapa-logo.png);
+    content: url(src/assets/img/mapa-logo.png);
     width: 45px;
     height: 45px;
     filter: invert(44%) sepia(21%) saturate(1487%) hue-rotate(99deg) brightness(97%) contrast(83%);
@@ -576,7 +576,7 @@ header {
 
 
 #galeria-button:hover img {
-    content: url(/src/assets/img/galeria-logo.png);
+    content: url(src/assets/img/galeria-logo.png);
     width: 45px;
     height: 45px;
     filter: invert(100);
@@ -633,7 +633,7 @@ header {
 
 /* Ícone de Fatos no estado :hover */
 #fatos-button:hover img {
-    content: url(/src/assets/img/lampada-ideia-icon.png);
+    content: url(src/assets/img/lampada-ideia-icon.png);
     width: 60px;
     height: 60px;
     filter: invert(100);
@@ -664,7 +664,7 @@ header {
 
 /* Ícone do Jornal no estado :hover */
 #jornal-button:hover .header-link-img img {
-    content: url(/src/assets/img/jornal-aberto-icon.png);
+    content: url(src/assets/img/jornal-aberto-icon.png);
     width: 45px;
     height: 45px;
     filter: invert(27%) sepia(53%) saturate(3015%) hue-rotate(188deg) brightness(97%) contrast(101%);
@@ -685,7 +685,7 @@ header {
     border-radius: 15px;
     color: #023e8a;
     box-shadow: 0 0 10px #0000003d;
-    background-image: url(/src/assets/galeria/background.webp);
+    background-image: url(src/assets/galeria/background.webp);
 
     background-size: cover;
 }
@@ -714,7 +714,7 @@ header {
     border-radius: 150px;
     border: none;
     box-shadow: 0 0 10px #0000003d;
-    background-image: url(/src/assets/galeria/background-turtle.jpg);
+    background-image: url(src/assets/galeria/background-turtle.jpg);
     background-size: 100% 100%;
     transition: all 0.3s ease;
     position: relative;
@@ -987,18 +987,18 @@ section p {
 }
 
 #objetivos-card-poluicao {
-    background-image: url(/src/assets/galeria/poluicao-bg.jpg);
+    background-image: url(src/assets/galeria/poluicao-bg.jpg);
     border-radius: 15px;
 }
 
 #objetivos-card-vida {
-    background-image: url(/src/assets/galeria/vida-marinha-bg.jpg);
+    background-image: url(src/assets/galeria/vida-marinha-bg.jpg);
 
     border-radius: 15px;
 }
 
 #objetivos-card-coral {
-    background-image: url(/src/assets/galeria/coral-bg.jpg);
+    background-image: url(src/assets/galeria/coral-bg.jpg);
     border-radius: 15px;
 }
 
